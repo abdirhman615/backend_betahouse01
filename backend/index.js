@@ -6,7 +6,7 @@ App.use(express.json())
 const DbConnect = require('./DbConfig')
 DbConnect()
 App.use(cors())
-App.use(cors({origin:['http://localhost:3000']}))
+App.use(cors({ origin: ['http://localhost:3000'] }))
 const guryahaRouter = require('./Router/guryahaRouter')
 const userRouter = require('./Router/userRouter')
 const imagesRouter = require('./Router/imagesRouter')
@@ -22,7 +22,7 @@ App.listen(5000, () => {
 })
 // localhost:3000/
 App.get('/', (req, res) => {
-  res.json('Ku so dawaaw Serverkena')
+  res.json('database connected')
 })
 
 App.use('/guryah', guryahaRouter)
