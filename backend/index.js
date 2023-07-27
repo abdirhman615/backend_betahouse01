@@ -22,7 +22,7 @@ App.listen(5000, () => {
 })
 // localhost:3000/
 App.get('/', (req, res) => {
-  res.json('database connected')
+  res.json('Ku so dawaaw Serverkena')
 })
 
 App.use('/guryah', guryahaRouter)
