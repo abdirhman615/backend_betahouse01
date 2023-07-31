@@ -16,6 +16,7 @@ const OutClientRouter = require('./Router/Out_ClientRouter')
 const ServiceRouter = require('./Router/ServiceRouter')
 const contectRouter = require('./Router/contectRouter')
 const loginRouter = require('./Router/LoginRouter')
+const aboutRoute=require('./Router/aboutRouter')
 
 App.listen(5000, () => {
   console.log('server started')
@@ -34,5 +35,6 @@ App.use('/Out_Client', OutClientRouter)
 App.use('/Service', ServiceRouter)
 App.use('/contect', contectRouter)
 App.use('/Login', loginRouter)
+App.use('/about',aboutRoute)
 
 module.exports = App

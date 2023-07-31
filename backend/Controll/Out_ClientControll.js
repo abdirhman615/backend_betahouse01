@@ -10,10 +10,26 @@ GETOutClientRouter.get('/', async (req, res) => {
   const AllOutClient = await OutClientModal.find()
   res.json({ AllOutClient })
 })
-GETOutClientRouter.get('/:id', async (req, res) => {
-  const OutClientbyid = await OutClientModal.findById()
-  res.json({ OutClientbyid })
-})
+
+
+// get by id
+const getById = async (req, res,) => {
+  try {
+    const { id } = req.params;
+    const clientgetbyid = await OutClientModal.findById(id);
+    if (!clientgetbyid)
+      return res.status(404).send({ message: 'this client not found' });
+    res.status(200).send(clientgetbyid);
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+};
+
+
+// GETOutClientRouter.get('/:id', async (req, res) => {
+//   const OutClientbyid = await OutClientModal.findById()
+//   res.json({ OutClientbyid })
+// })
 
 POSTOutClientRouter.post('/', async (req, res) => {
   try {
@@ -56,4 +72,4 @@ DELETEOutClientRouter.delete('/:id', async (req, res) => {
   }
 })
 
-module.exports = { GETOutClientRouter, DELETEOutClientRouter, PUTOutClientRouter, POSTOutClientRouter }
+module.exports = { GETOutClientRouter, DELETEOutClientRouter, PUTOutClientRouter, POSTOutClientRouter ,getById}
