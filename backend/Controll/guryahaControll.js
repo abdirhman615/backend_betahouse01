@@ -6,11 +6,7 @@ const DELETEguryahaRouter = express.Router()
 const PUTguryahaRouter = express.Router()
 const GuryahaModal = require('../Models/guryahaModal')
 GETguryahaRouter.get('/', async (req, res) => {
-  const Allguryaha = await GuryahaModal.find().populate([{
-    path: 'users_id',
-    model: 'users',
-    select: 'name Email userStatus role'
-  }])
+  const Allguryaha = await GuryahaModal.find()
   res.json({ Allguryaha })
 })
 GETguryahaRouter.get('/:id', async (req, res) => {

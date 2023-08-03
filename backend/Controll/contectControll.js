@@ -8,6 +8,7 @@ const PUTcontectRouter = express.Router()
 // last ubdate
 
 const { ContectModal } = require('../Models/contectModal')
+
 GETcontectRouter.get('/', async (req, res) => {
   const Allcontect = await ContectModal.find()
   res.json({ Allcontect })
