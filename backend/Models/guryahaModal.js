@@ -36,9 +36,8 @@ const guryahaSchema = new mongoose.Schema({
     type: String
 
   },
-  isAvalibile: {
+  Status: {
     type: String,
-    enum: ['Yes', 'No'],
     required: true
   },
   rooms: {
@@ -55,15 +54,19 @@ const guryahaSchema = new mongoose.Schema({
     required: true
 
   },
-  faahfaahin: {
+  Owner: {
     type: String,
     required: true
-  },
-  users_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
-    required: true
   }
+  // faahfaahin: {
+  //   type: String,
+  //   required: true
+  // },
+  // users_id: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'user',
+  //   required: true
+  // }
   // user:{
   //     type:String,
   //     required:true
