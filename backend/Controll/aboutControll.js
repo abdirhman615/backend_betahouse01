@@ -24,14 +24,20 @@ const getaById = async (req, res) => {
 const Post = async (req, res) => {
   try {
     const { error } = Aboutvalidation(req.body);
-    if (error) return res.status(400).send(error.message);
+    if (error) 
+    return res.jeon(error.message);
 
-    const getabout = await aboutModel.find().sort({ _id: -1 }).limit(1)
+    const getabout = await aboutModel.find().sort({ '_id': -1 }).limit(1)
 
-    if(getabout){
-      const Updated = await aboutModel.findByIdAndUpdate(getabout._id, req.body,{new:true});
+    if(getabout.length>0){
+      const Updated = await aboutModel.findByIdAndUpdate(getabout[0]._id, 
+        {
+          FaahFaahin:req.body.FaahFaahin,
+          FaahFaaahinYar:req.body.FaahFaaahinYar
+        },{new:true});
       // await postabout.save();
-      res.status(201).send({Updated});
+      res.status(200).send({message:"updated seceesfully"});
+      
   
     }
     else{
