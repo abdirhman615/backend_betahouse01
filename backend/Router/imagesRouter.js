@@ -1,13 +1,15 @@
 const express = require('express')
 const imagesRouter = express.Router()
-const { GETimagesRouter, POSTimagesRouter, DELETEimagesRouter, PUTimagesRouter } = require('../Controll/imagesControll')
+const { GETimagesRouter,GETimagesRouterByID, POSTimagesRouter, DELETEimagesRouter, PUTimagesRouter } = require('../Controll/imagesControll')
+const {AuthernticateRoute}=require('./AutherncationMiddleWare')
+imagesRouter.get('/',AuthernticateRoute(["Admin"]), GETimagesRouter)
 
-imagesRouter.get('/', GETimagesRouter)
+imagesRouter.get('/:id', GETimagesRouterByID)
 
-imagesRouter.post('/', POSTimagesRouter)
+imagesRouter.post('/',AuthernticateRoute(["Admin"]), POSTimagesRouter)
 
-imagesRouter.put('/:id', PUTimagesRouter)
+imagesRouter.put('/:id',AuthernticateRoute(["Admin"]), PUTimagesRouter)
 
-imagesRouter.delete('/:id', DELETEimagesRouter)
+imagesRouter.delete('/:id',AuthernticateRoute(["Admin"]), DELETEimagesRouter)
 
 module.exports = imagesRouter

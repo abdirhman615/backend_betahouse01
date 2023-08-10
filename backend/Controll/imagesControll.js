@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 const express = require('express')
 const GETimagesRouter = express.Router()
+const GETimagesRouterByID = express.Router()
 const POSTimagesRouter = express.Router()
 const DELETEimagesRouter = express.Router()
 const PUTimagesRouter = express.Router()
@@ -15,6 +16,16 @@ GETimagesRouter.get('/', async (req, res) => {
   }])
   res.json({ Allimages })
 })
+GETimagesRouterByID.get('/', async (req, res) => {
+try{    
+  const PersonaldData = await ImagesModal.findById(id);
+    res.status(200).send(PersonaldData);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+}
+)
+
 GETimagesRouter.get('/:id', async (req, res) => {
   const imagesbyid = await ImagesModal.findById()
   res.json({ imagesbyid })
@@ -61,4 +72,4 @@ DELETEimagesRouter.delete('/:id', async (req, res) => {
   }
 })
 
-module.exports = { GETimagesRouter, DELETEimagesRouter, PUTimagesRouter, POSTimagesRouter }
+module.exports = { GETimagesRouter,GETimagesRouterByID, DELETEimagesRouter, PUTimagesRouter, POSTimagesRouter }
