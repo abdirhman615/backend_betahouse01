@@ -35,7 +35,7 @@ App.use('/Image_gallary', ImagegallaryRouter)
 App.use('/Out_Client',AuthernticateRoute(["Admin"]), OutClientRouter)
 App.use('/Service',AuthernticateRoute(["Admin"]), ServiceRouter)
 App.use('/contect',AuthernticateRoute(["Admin"]), contectRouter)
-App.use('/Login',AuthernticateRoute(["Admin"]), loginRouter)
+App.use('/Login', loginRouter)
 App.use('/about',aboutRoute)
 
 module.exports = App
