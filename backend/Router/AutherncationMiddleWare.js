@@ -10,7 +10,7 @@ const AuthernticateRoute = (AllowedRoles) =>{
 
         const token = tokenHeder.split(' ')[1]
         try {
-            const TokenVerify =jwt.verify(token,process.env.SECRET_KEY)
+            const TokenVerify =jwt.verify(token,process.env.MYTOKENKEY)
 
             const User = await UserModal.findById(TokenVerify.id)
             if(!User) return res.status(404).send('User is not found')

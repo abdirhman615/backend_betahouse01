@@ -35,13 +35,11 @@ const loginRouter = async (req, res) => {
         const token = jwt.sign(
           {
             id: usergetdata._id,
-            name: usergetdata.name,
+            username: usergetdata.username,
             Role:usergetdata.Role
           },
-          process.env.SECRET_KEY
+          process.env.MYTOKENKEY
         );
-        
-    
         res.status(200).header('token', token).json({
           status: true,
           message: 'successfully logged in',
