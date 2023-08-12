@@ -38,7 +38,7 @@ const loginRouter = async (req, res) => {
             username: usergetdata.username,
             Role:usergetdata.Role
           },
-          process.env.MYTOKENKEY
+         "acbfa14fb74b48e273b6a4e911ed9fd7a9f5a3355ceda4ac0b68fa42b2527097niofh89nnspjfhusf"
         );
         res.status(200).header('token', token).json({
           status: true,
