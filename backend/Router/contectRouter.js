@@ -3,12 +3,12 @@ const contectRouter = express.Router()
 const { GETcontectRouter, POSTcontectRouter, DELETEcontectRouter, PUTcontectRouter } = require('../Controll/contectControll')
 const {AuthernticateRoute}=require('./AutherncationMiddleWare')
 
-contectRouter.get('/',AuthernticateRoute(["Admin"]), GETcontectRouter)
+contectRouter.get('/',AuthernticateRoute(["SuperAdmin","Admin","CustomerCare"]), GETcontectRouter)
 
-contectRouter.post('/', POSTcontectRouter)
+contectRouter.post('/',POSTcontectRouter)
 
-contectRouter.put('/:id', PUTcontectRouter)
+contectRouter.put('/:id',AuthernticateRoute(["SuperAdmin","Admin","CustomerCare"]), PUTcontectRouter)
 
-contectRouter.delete('/:id', DELETEcontectRouter)
+contectRouter.delete('/:id',AuthernticateRoute(["SuperAdmin","Admin","CustomerCare"]), DELETEcontectRouter)
 
 module.exports = contectRouter

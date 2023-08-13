@@ -3,10 +3,10 @@ const {
   get, Post ,getaById,
 } = require('../Controll/aboutControll');
 const router = express.Router();
-
+const {AuthernticateRoute}=require('./AutherncationMiddleWare')
 router.get('/', get);
-router.get('/:id', getaById);
+router.get('/:id',AuthernticateRoute(["SuperAdmin","Admin"]), getaById);
 
-router.post('/', Post);
+router.post('/',AuthernticateRoute(["SuperAdmin","Admin"]), Post);
 
 module.exports = router;

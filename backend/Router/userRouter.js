@@ -3,15 +3,15 @@ const Routeuser=express.Router()
 const { get, Post ,Put,getaById,Delete}=require('../Controll/userControll')
 const {AuthernticateRoute}=require('./AutherncationMiddleWare')
 //get user data
-Routeuser.get('/',AuthernticateRoute(["Admin"]),get)
+Routeuser.get('/',AuthernticateRoute(["SuperAdmin","Admin"]),get)
 
-Routeuser.get('/:id',AuthernticateRoute(["Admin"]),getaById)
+Routeuser.get('/:id',AuthernticateRoute(["SuperAdmin"]),getaById)
 //post
-Routeuser.post('/',AuthernticateRoute(["Admin"]),Post)
+Routeuser.post('/',AuthernticateRoute(["SuperAdmin","Admin"]),Post)
 //put
-Routeuser.put('/:id',AuthernticateRoute(["Admin"]),Put)
+Routeuser.put('/:id',AuthernticateRoute(["SuperAdmin"]),Put)
 //delete
-Routeuser.delete('/:id',AuthernticateRoute(["Admin"]),Delete)
+Routeuser.delete('/:id',AuthernticateRoute(["SuperAdmin"]),Delete)
 
 
 module.exports = Routeuser

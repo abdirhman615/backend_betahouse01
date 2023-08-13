@@ -4,10 +4,10 @@ const { GEThomestitingRouter, POSThomestitingRouter, DELETEhomestitingRouter, PU
 const {AuthernticateRoute}=require('./AutherncationMiddleWare')
 homestitingRouter.get('/', GEThomestitingRouter)
 
-homestitingRouter.post('/',AuthernticateRoute(["Admin"]), POSThomestitingRouter)
+homestitingRouter.post('/',AuthernticateRoute(["SuperAdmin","Admin"]), POSThomestitingRouter)
 
-homestitingRouter.put('/:id',AuthernticateRoute(["Admin"]), PUThomestitingRouter)
+homestitingRouter.put('/:id',AuthernticateRoute(["SuperAdmin","Admin"]), PUThomestitingRouter)
 
-homestitingRouter.delete('/:id',AuthernticateRoute(["Admin"]), DELETEhomestitingRouter)
+homestitingRouter.delete('/:id',AuthernticateRoute(["SuperAdmin","Admin"]), DELETEhomestitingRouter)
 
 module.exports = homestitingRouter
